@@ -8,7 +8,7 @@ import { ToDoContextProvider } from './contexts/TodoContext';
 const App = () => {
   return (
     <ToDoContextProvider>
-      <BrowserRouter>
+      <BrowserRouter basename='/wanted-pre-onboarding-frontend'>
         <Header/>
         <Page/>
       </BrowserRouter>

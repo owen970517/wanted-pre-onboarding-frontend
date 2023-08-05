@@ -14,7 +14,7 @@ const onToDoAdd = () => {
   return (
     <NewToDo>
         <ToDoInput type='text' placeholder='할 일 ' data-testid="new-todo-input" onChange={onToDoChange} value={todo}/>
-        <AddBtn data-testid="new-todoAddBtn" onClick={onToDoAdd}>Add</AddBtn>
+        <AddBtn data-testid="new-todo-add-button" onClick={onToDoAdd}>Add</AddBtn>
     </NewToDo>
   )
 }

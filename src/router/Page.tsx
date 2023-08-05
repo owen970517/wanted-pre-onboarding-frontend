@@ -7,9 +7,9 @@ import SignUp from '../auth/SignUp';
 const Page = () => {
   return (
     <Routes>
-        <Route path='/todo' element={<Home/>}/>
-        <Route path='/signin' element={<SignIn/>}/>
-        <Route path='/signup' element={<SignUp/>} />
+      <Route path='/todo' element={<Home/>}/>
+      <Route path='/signin' element={<SignIn/>}/>
+      <Route path='/signup' element={<SignUp/>} />
     </Routes>
   )
 }

@@ -12,7 +12,7 @@ const ToDoList = () => {
   } = useToDoContext();
   return (
     <ToDoItems>
-      {todoList.map((todo) => {
+      {todoList?.map((todo) => {
         return (
           <ToDoItem key={todo.id}>
             { isModify && modifyId === todo.id ?                 

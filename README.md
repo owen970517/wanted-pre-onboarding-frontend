@@ -9,8 +9,7 @@
 - npm start
 
 ## 데모 영상 
-- 로그인 / 회원가입
-- ToDo LIST
+- https://owen970517.github.io/wanted-pre-onboarding-frontend/
 
 ## 사용한 기술 및 라이브러리
 - React
