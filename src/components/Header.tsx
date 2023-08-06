@@ -24,7 +24,7 @@ const Header = () => {
           </Item>
           {
             isLogin &&  <Item>
-              <button onClick={onLogOut}>로그아웃</button>
+              <LogOutButton onClick={onLogOut}>로그아웃</LogOutButton>
             </Item>
           }
         </List>
@@ -33,9 +33,9 @@ const Header = () => {
 }
 
 const Wrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const List = styled.ul`
@@ -50,5 +50,19 @@ const Item = styled.h3`
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
-
+const LogOutButton= styled.button`
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e63946;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #c53741;
+  }
+`
 export default Header

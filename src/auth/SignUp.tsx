@@ -7,27 +7,15 @@ const SignUp = () => {
     const nav = useNavigate();
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const [emailValid,setEmailValid] = useState('')
-    const [passwordValid,setPasswordValid] = useState('')
-    const isEmailValid = email?.includes('@');
-    const isPasswordValid = password?.length >= 8;
-    const isFormValid = isEmailValid && isPasswordValid;
+    const [isEmailValid, setIsEmailValid] = useState(false);
+    const [isPasswordValid, setIsPasswordValid] = useState(false);
+    const [isFormValid, setIsFormValid] = useState(false);
     const isLogin = localStorage.getItem('token');
     useEffect(()=> {
         if (isLogin) {
             nav('/todo')
         } 
     },[])
-    const onSignUp = (e:React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const data = createUser({email: email , password:password}) 
-        data.then((res) => {
-            if (res?.status === 201) {
-                alert('회원가입이 완료되었습니다.')
-                nav('/signin')
-            }
-        });
-    }
     const onSignUpBtn = () => {
         const data = createUser({email: email , password:password}) 
         data.then((res) => {
@@ -39,35 +27,35 @@ const SignUp = () => {
     }
     const onEamilChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
-        if (!isEmailValid) {
-            setEmailValid('반드시 @를 포함해주세요')
-        }
+        const isValid = e.target.value?.includes('@');
+        setIsEmailValid(isValid);
+        setIsFormValid(isValid && isPasswordValid);
     }
     const onPasswordChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value)
-        if (!isPasswordValid) {
-            setPasswordValid('비밀번호 8자리 이상 입력해주세요')
-        }
+        const isValid = e.target.value?.length >= 8;
+        setIsPasswordValid(isValid);
+        setIsFormValid(isEmailValid && isValid);
     }
   return (
     <Wrapper>
         <Title>회원가입</Title>
-        <SignUpForm onSubmit={onSignUp}>
+        <SignUpForm>
             <EmailInput data-testid="email-input" 
                 type="email"
                 value={email}
                 placeholder='이메일을 입력하시오'
                 onChange={onEamilChange}/>
-            {!isEmailValid && <p style={{color:'red'}}>{emailValid}</p>}
+            {email && !isEmailValid && (<p style={{ color: 'red' }}>이메일 형식이 올바르지 않습니다.</p>)}
             <PasswordInput data-testid="password-input" 
                 type="password"
                 value={password}
                 placeholder='비밀번호를 입력하시오'
                 onChange={onPasswordChange}
             />
-            {!isPasswordValid && <p style={{color:'red'}}>{passwordValid}</p>}
+            {password && !isPasswordValid && (<p style={{ color: 'red' }}>비밀번호는 8자리 이상이어야 합니다.</p>)}
         </SignUpForm>
-        <button data-testid="signup-button" disabled={!isFormValid} onClick={onSignUpBtn}>회원가입</button>
+        <SignUpButton data-testid="signup-button" disabled={!isFormValid} onClick={onSignUpBtn}>회원가입</SignUpButton>
     </Wrapper>
   )
 }
@@ -84,7 +72,7 @@ const Wrapper = styled.div`
 const Title = styled.h3`
     font-size: 30px;
 `
-const SignUpForm = styled.form`
+const SignUpForm = styled.div`
     display: flex;
     flex-direction: column;
 `
@@ -99,5 +87,24 @@ const PasswordInput = styled.input`
     height: 50px;
     border-radius: 10px;
     margin-bottom: 10px;
+`
+const SignUpButton = styled.button`
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #1a759f;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #0f5679;
+    }
+    &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
 `
 export default SignUp

@@ -16,17 +16,6 @@ const SignIn = () => {
             nav('/todo')
        } 
     },[])
-    const onSignInSubmit = (e:React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const res = postLogin({email: email , password:password})
-        res.then((getData) => {
-            console.log(getData)
-            if (getData?.access_token) {
-                localStorage.setItem('token',getData?.access_token);
-            }
-            nav('/todo')
-        });
-    }
     const onSignInBtn = () => {
         const res = postLogin({email: email , password:password})
         res.then((getData) => {
@@ -45,7 +34,7 @@ const SignIn = () => {
     return (
         <Wrapper>
             <Title>로그인</Title>
-            <SignInForm onSubmit={onSignInSubmit}>
+            <SignInForm>
                 <EmailInput data-testid="email-input" 
                     type="email"
                     value={email}
@@ -58,7 +47,7 @@ const SignIn = () => {
                     onChange={onPasswordChange}
                 />
             </SignInForm>
-            <button type='button' data-testid="signin-button" disabled={!isFormValid} onClick={onSignInBtn}>로그인</button>
+            <SignInButton type='button' data-testid="signin-button" disabled={!isFormValid} onClick={onSignInBtn}>로그인</SignInButton>
         </Wrapper>
     )
 }
@@ -75,7 +64,7 @@ const Wrapper = styled.div`
 const Title = styled.h3`
     font-size: 30px;
 `
-const SignInForm = styled.form`
+const SignInForm = styled.div`
     display: flex;
     flex-direction: column;
 `
@@ -90,6 +79,25 @@ const PasswordInput = styled.input`
     height: 50px;
     border-radius: 10px;
     margin-bottom: 10px;
+`
+const SignInButton = styled.button`
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #1a759f;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #0f5679;
+    }
+    &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
 `
 
 export default SignIn
