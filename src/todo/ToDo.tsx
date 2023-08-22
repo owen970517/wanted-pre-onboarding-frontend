@@ -11,8 +11,8 @@ const ToDo:React.FC<IToDoProps> = ({ todo, id,isCompleted }) => {
     setModifyId(id)
     const itemToModify = todoList.find(item => item.id === id);
     if (itemToModify) {
-    setModifyToDo(itemToModify.todo);
-    setModifyCompleted(itemToModify.isCompleted)
+      setModifyToDo(itemToModify.todo);
+      setModifyCompleted(itemToModify.isCompleted)
     }
   }
   const onDeleteToDo = (id:number) => {

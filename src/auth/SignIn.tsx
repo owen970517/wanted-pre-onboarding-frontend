@@ -16,14 +16,12 @@ const SignIn = () => {
             nav('/todo')
        } 
     },[])
-    const onSignInBtn = () => {
-        const res = postLogin({email: email , password:password})
-        res.then((getData) => {
-            if (getData?.access_token) {
-                localStorage.setItem('token',getData?.access_token);
-            }
-            nav('/todo')
-        });
+    const onSignInBtn = async () => {
+        const res = await postLogin({email: email , password:password})
+        if (res?.access_token) {
+            localStorage.setItem('token',res?.access_token);
+        }
+        nav('/todo')
     }
     const onEamilChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)

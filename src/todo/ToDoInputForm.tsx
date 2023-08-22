@@ -3,14 +3,14 @@ import { styled } from 'styled-components'
 import { createToDos } from '../api/api';
 
 const ToDoInputForm = () => {
-const [todo,setToDo] = useState('');
-const onToDoChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    setToDo(e.target.value)
-  }
-const onToDoAdd = () => {
-    createToDos(todo)
-    setToDo('')
-  }
+  const [todo,setToDo] = useState('');
+  const onToDoChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+      setToDo(e.target.value)
+    }
+  const onToDoAdd = () => {
+      createToDos(todo)
+      setToDo('')
+    }
   return (
     <NewToDo>
         <ToDoInput type='text' placeholder='할 일 ' data-testid="new-todo-input" onChange={onToDoChange} value={todo}/>

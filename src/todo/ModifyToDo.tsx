@@ -17,10 +17,10 @@ const ModifyToDo= () => {
       setIsModify(false);
     }
     const onCancelModify = () => {
-        setIsModify(false);
+      setIsModify(false);
     }
     const onModifyToDoChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-        setModifyToDo(e.target.value)
+      setModifyToDo(e.target.value)
     }
     return (
       <>

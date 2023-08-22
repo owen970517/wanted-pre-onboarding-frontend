@@ -16,15 +16,13 @@ const SignUp = () => {
             nav('/todo')
         } 
     },[])
-    const onSignUpBtn = () => {
-        const data = createUser({email: email , password:password}) 
-        data.then((res) => {
-            if (res?.status === 201) {
-                alert('회원가입이 완료되었습니다.')
-                nav('/signin')
-            }
-        });
-    }
+    const onSignUpBtn = async () => {
+        const data = await createUser({ email, password });
+        if (data?.status === 201) {
+        alert('회원가입이 완료되었습니다.');
+        nav('/signin');
+        }
+    };
     const onEamilChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
         const isValid = e.target.value?.includes('@');
