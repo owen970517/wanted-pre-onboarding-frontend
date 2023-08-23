@@ -28,13 +28,22 @@
 - context api
     - props 전달로 지저분했던 코드를 개선하기 위해 사용
 
+## 개선한 부분 
+
+- 컴포넌트 분리 
+- context api로 props drilling 해결
+
 
 ## 개선할 부분 
 
 - 나름 코드의 양을 줄이고, 보기 좋게 만들어 보려고 했지만 다른 분들에 비해 많이 부족함을 느낄 수 있었다.
-- 비슷한 컴포넌트가 있을 떄 (ex signin,signup의 form) 재사용할 수 있도록 바꾸면 좋겠다.
+- 비슷한 컴포넌트가 있을 떄 (ex signin,signup의 form) 재사용할 수 있도록 개선.
 - custom hooks을 사용해보기
-- todo 프로젝트의 경우에는 reducer로 상태 관리 하는것이 best practice인지 얘기해봤으면 좋겠습니다.
+
+## 토론해봤으면 좋은 부분
+
+- css 라이브러리 어떤 것을 사용하는 것이 좋을까? (ex styled-components , sass 등)
+- todo 프로젝트에서 context api 와 reducer를 사용하는 것이 좋은가?
 
 
 
