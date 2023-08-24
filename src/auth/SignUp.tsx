@@ -19,8 +19,8 @@ const SignUp = () => {
     const onSignUpBtn = async () => {
         const data = await createUser({ email, password });
         if (data?.status === 201) {
-        alert('회원가입이 완료되었습니다.');
-        nav('/signin');
+            alert('회원가입이 완료되었습니다.');
+            nav('/signin');
         }
     };
     const onEamilChange = (e:React.ChangeEvent<HTMLInputElement>) => {

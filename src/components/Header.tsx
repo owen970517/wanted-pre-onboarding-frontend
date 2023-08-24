@@ -11,7 +11,7 @@ const Header = () => {
   }
   return (
     <Wrapper>
-        <h1>Logo</h1>
+        <h1>TODO</h1>
         <List>
           <Item>
               <StyledLink to='/todo'>ToDo</StyledLink>

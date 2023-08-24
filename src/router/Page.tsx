@@ -12,7 +12,7 @@ const Page = () => {
       nav('/todo')
     } 
     nav('/signin')
- },[])
+  },[])
   return (
     <Routes>
       <Route path='/todo' element={<Home/>}/>
