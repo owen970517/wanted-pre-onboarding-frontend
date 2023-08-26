@@ -13,19 +13,24 @@ const Header = () => {
     <Wrapper>
         <h1>LOGO</h1>
         <List>
-          <Item>
-              <StyledLink to='/todo'>ToDo</StyledLink>
-          </Item>
-          <Item>
-                <StyledLink to='/signin'>로그인</StyledLink>
-          </Item>
-          <Item>
-              <StyledLink to='/signup'>회원가입</StyledLink>
-          </Item>
           {
-            isLogin &&  <Item>
-              <LogOutButton onClick={onLogOut}>로그아웃</LogOutButton>
-            </Item>
+            isLogin ?  
+              <>
+                <Item>
+                  <LogOutButton onClick={onLogOut}>로그아웃</LogOutButton>
+                </Item> 
+                <Item>
+                  <StyledLink to='/todo'>ToDo</StyledLink>
+                </Item>
+              </>:
+              <>
+                <Item>
+                  <StyledLink to='/signin'>로그인</StyledLink>
+                </Item>
+                <Item>
+                    <StyledLink to='/signup'>회원가입</StyledLink>
+                </Item>
+              </>
           }
         </List>
     </Wrapper>
