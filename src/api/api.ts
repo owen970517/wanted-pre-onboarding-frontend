@@ -62,7 +62,7 @@ export const getToDos = async () => {
         return await data;
     } catch (err) {
         if (axios.isAxiosError(err) && err.response) {
-            console.log(err.response.data.message);
+            alert(err.response.data.message);
         }
     }
 };
