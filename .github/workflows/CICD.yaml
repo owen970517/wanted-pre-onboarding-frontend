@@ -1,9 +1,9 @@
 name: CI/CD
 
 on:
-  push:
-    branches:
-      - 12th
+    push:
+        branches:
+            - 12th
 
 jobs:
   cicd:
@@ -11,4 +11,4 @@ jobs:
     steps:
       - name : 'print node version'
         run : node -v
-      - run : echo 'hello_world'
+      - run : echo 'hello world'
