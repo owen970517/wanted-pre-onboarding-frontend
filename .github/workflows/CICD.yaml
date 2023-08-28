@@ -11,4 +11,4 @@ jobs:
     steps:
       - name : 'print node version'
         run : node -v
-      - run : echo 'hello world'
+      - run : echo 'hello_world'
