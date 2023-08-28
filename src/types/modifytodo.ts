@@ -1,4 +1,4 @@
 export interface IModifyToDoProps {
-  modifyTodo: string;
-  modifyCompleted: boolean;
+    modifyTodo: string;
+    modifyCompleted: boolean;
 }
